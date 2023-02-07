@@ -35,8 +35,8 @@ fun main() {
          * Second for loop goes from A to Z and adds the scores of each that exists in the list
          * the calculated character scores are removed afterwards accordingly
          * **/
-        while (!intersectedList.isEmpty()) {
-            
+        while (intersectedList.isNotEmpty()) {
+
             for (alphabetLowerCase in 'a'..'z') {
                 if (alphabetLowerCase in intersectedList) {
                     totalPriority += priorityAlphabet
@@ -57,10 +57,54 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        return 0
+
+        var priorityPoints = 1
+        var threeCounter = 0
+        var totalPriority = 0
+        var intersectedList: MutableList<Char> = mutableListOf()
+
+        val firstSubCharacter: MutableList<Char> = mutableListOf()
+        val secondSubCharacter: MutableList<Char> = mutableListOf()
+        val thirdSubCharacter: MutableList<Char> = mutableListOf()
+
+        for (lines in input) {
+
+            for (characters in lines) {
+                when (threeCounter % 3) {
+                    0 -> firstSubCharacter.add(characters)
+                    1 -> secondSubCharacter.add(characters)
+                    2 -> thirdSubCharacter.add(characters)
+                }
+            }
+
+            threeCounter++
+
+            if (firstSubCharacter.isNotEmpty() and secondSubCharacter.isNotEmpty() and thirdSubCharacter.isNotEmpty()) {
+                intersectedList =
+                    firstSubCharacter.intersect(secondSubCharacter).intersect(thirdSubCharacter).toMutableList()
+                firstSubCharacter.clear()
+                secondSubCharacter.clear()
+                thirdSubCharacter.clear()
+
+                for (lowerCaseCharacters in 'a'..'z') {
+                    if (lowerCaseCharacters in intersectedList) {
+                        totalPriority += priorityPoints
+                    }
+                    priorityPoints++
+                }
+                for (higherCaseCharacters in 'A'..'Z') {
+                    if (higherCaseCharacters in intersectedList) {
+                        totalPriority += priorityPoints
+                    }
+                    priorityPoints++
+                }
+                priorityPoints = 1
+            }
+        }
+        return totalPriority
     }
 
-    val input = readInput("Day03_sample")
-//    println(part1(input))
+    val input = readInput("Day03")
+    println(part1(input))
     println(part2(input))
 }
