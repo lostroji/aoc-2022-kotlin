@@ -1,12 +1,15 @@
 fun main() {
+
+    var intersectedList: MutableList<Char> = mutableListOf()
+    var totalPriority = 0
+
     fun part1(input: List<String>): Int {
 
-        var priorityAlphabet = 1
-        var totalPriority = 0
         val wholeCharacterList: MutableList<Char> = mutableListOf()
         var firstHalfList: MutableList<Char>
         var secondHalfList: MutableList<Char>
-        val intersectedList: MutableList<Char> = mutableListOf()
+
+        var priorityAlphabet = 1
 
         // For loop for taking each line of the input text
         for (lines in input) {
@@ -58,14 +61,13 @@ fun main() {
 
     fun part2(input: List<String>): Int {
 
-        var priorityPoints = 1
-        var threeCounter = 0
-        var totalPriority = 0
-        var intersectedList: MutableList<Char> = mutableListOf()
-
         val firstSubCharacter: MutableList<Char> = mutableListOf()
         val secondSubCharacter: MutableList<Char> = mutableListOf()
         val thirdSubCharacter: MutableList<Char> = mutableListOf()
+
+        var priorityPoints = 1
+        var threeCounter = 0
+        totalPriority = 0
 
         for (lines in input) {
 

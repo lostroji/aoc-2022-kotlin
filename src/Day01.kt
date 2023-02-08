@@ -1,11 +1,11 @@
 fun main() {
-    fun part1(input: List<String>): Int {
 
+    val elvesTotalCaloriesList: MutableList<Int> = mutableListOf()
+    var adder = 0
+
+    fun part1(input: List<String>): Int {
         /** have declared a for loop to check each element(calories) of the input list
          * then adds the calories of each elf altogether **/
-        var adder = 0
-        val elvesTotalCaloriesList: MutableList<Int> = mutableListOf()
-
         for (elements in input) {
             if (elements == "") {
                 elvesTotalCaloriesList.add(adder)
@@ -19,9 +19,10 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        var adder = 0
-        val elvesTotalCaloriesList: MutableList<Int> = mutableListOf()
+
         val emptyList: MutableList<Int> = mutableListOf()
+        elvesTotalCaloriesList.clear()
+        adder = 0
 
         for (elements in input) {
             if (elements == "") {

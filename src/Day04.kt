@@ -40,6 +40,9 @@ fun main() {
 
     fun part2(input: List<String>): Int {
 
+        totalValue = 0
+        index = 0
+
         while (index < input.size) {
             firstPart = input[index].split(",").subList(0, 1)
             secondPart = input[index].split(",").subList(1, 2)
