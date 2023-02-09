@@ -112,7 +112,7 @@ fun main() {
 
         val floatingList: MutableList<Char> = mutableListOf()
         var splitSubList: List<String>
-        val mainInfoSubList = input.subList(10, input.size)     //changed from 5 to 10
+        val mainInfoSubList = input.subList(10, input.size)
         val finalizedList: MutableList<String> = mutableListOf()
 
         for (index in 0..mainInfoSubList.size - 1) {
