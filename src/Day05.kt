@@ -1,8 +1,6 @@
 fun main() {
 
     fun part1(input: List<String>): String {
-
-
         //Initial values
         val firstCargoList = mutableListOf('Q', 'F', 'M', 'R', 'L', 'W', 'C', 'V')
         val secondCargoList = mutableListOf('D', 'Q', 'L')
